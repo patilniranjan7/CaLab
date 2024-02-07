@@ -1,1 +1,1 @@
-export const data = new Date().getTime();
+export const data = new Date();
