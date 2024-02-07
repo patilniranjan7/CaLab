@@ -1,0 +1,43 @@
+react life cycle ...
+
+
+In React, the term "lifecycle" refers to the various stages that a React component goes through from its creation to its removal from the
+ DOM (Document Object Model). Each component in React has a lifecycle, and you can hook into these lifecycle events to perform actions at 
+ specific points in the component's existence. However, it's important to note that with the introduction of React Hooks in React 16.8, 
+ the traditional class-based lifecycle methods are being gradually replaced by functional components and hooks.
+
+Here's an overview of the lifecycle methods in a class-based React component:
+
+Mounting Phase:
+
+constructor(): This is the first method called when a component is created. It's used for setting up initial state and binding event handlers.
+static getDerivedStateFromProps(props, state): A static method that is called before rendering when new props or state are received. 
+It returns an object to update the state or null to indicate that the new props do not require a state update.
+render(): This method is responsible for rendering the component's UI.
+After the render method is called, the component is considered "mounted" to the DOM.
+
+componentDidMount(): This method is called after the component is rendered to the DOM. It's often used for performing side effects,
+ such as data fetching or setting up subscriptions.
+Updating Phase:
+
+static getDerivedStateFromProps(props, state): As mentioned earlier, this method is also called during the update phase, not just during mounting.
+shouldComponentUpdate(nextProps, nextState): This method is called before rendering when new props or state are received. It allows you to control
+ whether the component should re-render or not by returning true or false.
+render(): Re-rendering of the component.
+getSnapshotBeforeUpdate(prevProps, prevState): This method is called right before the changes from the virtual DOM are to be reflected in the DOM.
+ It returns a snapshot value that can be used later in the componentDidUpdate method.
+componentDidUpdate(prevProps, prevState, snapshot): This method is called after the component is updated in the DOM. 
+It's often used for performing side effects based on the changes.
+Unmounting Phase:
+
+componentWillUnmount(): This method is called just before a component is unmounted and removed from the DOM.
+ It's used for cleanup tasks like canceling network requests or cleaning up subscriptions.
+Error Handling:
+
+static getDerivedStateFromError(error): This method is called when there is an error during rendering. It allows the component to capture 
+an error in the child component tree and update state accordingly.
+componentDidCatch(error, info): This method is called after an error has been thrown by a descendant component. It's used for logging error 
+information.
+With the introduction of React Hooks, functional components can now use hooks like useEffect to achieve similar functionality to the lifecycle 
+methods in class-based components. Hooks provide a more flexible and concise way of managing component lifecycle and state in functional
+ components.
